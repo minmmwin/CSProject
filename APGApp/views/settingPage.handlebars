@@ -1,0 +1,32 @@
+ <div data-role="page" id="settingPage">
+        <div data-role="header" data-theme="c" data-position="fixed">
+            <h1>APG</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <a href="/myProfilePage/" class="ui-btn ui-corner-all">my Profile</a>
+
+            <a href="signInPage" class="ui-btn ui-corner-all">Log Out</a>
+
+            <a href="#accountDeletePopUp" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-corner-all bi-top-margin-1-5">Delete</a>
+
+            <div data-role="popup" id="accountDeletePopUp" data-dismissible="false" style="max-width:450px;">
+                <div role="main" class="ui-content">
+                    <h3 class="mc-text-danger">Deleting Account Confirmation</h3>
+                    <p>Please press 'DELETE' to delete your account from APG</p>
+                    <div class="bi-text-center"><a href="#signInOrSignUpPage" class="ui-btn ui-corner-all ui-shadow ui-btn-b bi-top-margin-1-5">Delete</a></div>
+                </div>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <!--<li><a href="#userListPage" data-icon="user"></a></li> -->
+                        <!--<li><a href="#myMessagesPage" data-icon="comment"></a></li>-->
+                        <li><a id="userListPageLink" onclick="goToUserListPage(this)" data-icon="user"></a></li>
+                        <li><a id="myMeessagesPageLink" onclick="goToMyMessagesPage(this)" data-icon="comment"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+    </div><!-- /page -->

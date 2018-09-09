@@ -1,0 +1,51 @@
+ <div data-role="page" id="login">
+        <div data-role="header" data-theme="c" data-position="fixed">
+            
+            <h1>APG</h1>
+            
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <img  class="logo" src="/img/AppLogo.png">
+            <h3>Log In</h3>
+
+            <div class="errors"></div>
+
+            <form action="/users/login" method="post" action="demoform.asp">
+                <div class="ui-field-contain">
+            
+                    <label for="email">Email Address</label>
+                    <input type="text" name="email" id="email" value="" required>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" value="" required>
+            
+                </div>
+                <button onclick="getElementById('errorsPopUp').innerHTML = Date()" type="submit">Log in</button>
+
+                <div data-role="popup" id="errorsPopUp">
+                    <p>This is a simple popup.</p>
+                </div>
+            <!--  <button id="loginButton" type="submit">Submit</button> -->
+           
+        </form>
+
+
+            <div data-role="popup" id="invalidInputPopUp" data-dismissible="false" style="max-width:300px;">
+                <div role="main" class="ui-content">
+                    <h3 class="mc-text-danger">Oops</h3>
+                    <p>Invalid username or passwords</p>
+                    <div class="mc-text-center"><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">Try again</a></div>
+                </div>
+            </div>
+
+           <!-- <a href="settingPage" class="ui-btn ui-btn-b ui-corner-all bi-top-margin-1-5">Log In</a> -->
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#signInOrSignUpPage" data-icon="home"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+    </div><!-- /page -->

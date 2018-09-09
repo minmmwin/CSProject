@@ -1,0 +1,37 @@
+ <div data-role="page" id="register">
+        <div class="bi-header" data-role="header" data-theme="c" data-position="fixed">
+           
+            <h1>APG</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <img  class="logo" src="/img/AppLogo.png">
+            <h3>Register</h3>
+            <div class="errors"></div>
+            <form action="/users/register" method="post" action="demoform.asp">
+                <div class="ui-field-contain">
+            
+                    <label for="txt-first-name">Name</label>
+                    <input type="text" name="name" id="name" value="{{name}}" required>
+                    <label for="email">Email Address</label>
+                    <input type="text" name="email" id="email" value="{{email}}" required>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" value="{{password}}" required>
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" name="password2" id="password2" value="{{password2}}" required>
+            
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+
+         
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#signInOrSignUpPage" data-icon="home"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>

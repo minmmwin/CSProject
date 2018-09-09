@@ -1,0 +1,19 @@
+{{#if error}}
+
+<div class = "alert alert-danger">{{error}}</div>
+
+
+<!--$(".errors").text("errors"); -->
+
+<div data-role="popup" id="errorsPopUp">
+  <p>This is a simple popup.</p>
+</div>
+
+{{/if}}
+ 
+{{#each errors}}
+<!--<div data-role="popup" id="errorsPopup" class="ui-content">{{text}}</div> -->
+<div class="alert alert-danger">{{text}}</div>
+{{else}}
+
+{{/each}}

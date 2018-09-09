@@ -1,0 +1,47 @@
+{{#each profileInfos}}
+
+<div data-role="page" id="myProfileIndex">
+        <div data-role="header" data-theme="c" data-position="fixed">
+            <h1>APG</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+
+            <div data-role="content">
+                <div id="myProfilePageContent">
+
+                    <h3 id="myProfileHeadline"> {{headline}} </h3>
+                    <p id="myProfileName"> {{name}} </p>
+                    <p id="myProfileAge"> {{age}} </p>
+                    <p id="myProfileLocation"> {{location}}</p>
+                    <p id="myProfileGender"> {{gender}} </p>
+                    <p id="myProfileAboutMe"> {{aboutMe}} </p>
+                    <p id="myProfileHobbiesInterests"> {{hobbiesInterests}} </p>
+
+                    <div>
+                        <br>
+                        <img id="imageOne" src="DefaultPhoto.png" alt="image" />
+                    </div>
+
+
+                    <!--<a id="website" onclick="goToWebPage(this)"> Website </a> -->
+
+
+                </div>
+            </div>
+            <a href="/myProfilePage/editProfilePage/{{id}}" class="ui-btn ui-corner-all">Edit</a>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="../settingPage" data-icon="bars"></a></li>
+                        <li><a href="#editProfilePage" data-icon="edit"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+    </div><!-- /page -->
+
+{{else}}
+    <p>No info</p>
+{{/each}}

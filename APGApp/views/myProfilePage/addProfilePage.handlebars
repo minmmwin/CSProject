@@ -1,0 +1,63 @@
+<div data-role="page" id="addProfilePage">
+        <div data-role="header" data-theme="c" data-position="fixed">
+            <h1>APG</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <form action="/myProfilePage" method="post" action="demoform.asp">
+                <div class="ui-field-contain">
+
+                    <label for="headline">Headline</label>
+                    <input type="text" name="headline" id="headline" value="" required>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="" required>
+                    <label for="age">Age</label>
+                    <input type="text" name="age" id="age" value=""required>
+                    <label for="location">Location</label>
+                    <input type="text" name="location" id="location" value="" required>
+                    
+                    <label for="AboutMe">About Me</label>
+                    <textarea name="aboutMe" id="AboutMe" required></textarea>
+                    <label for="hobbiesInterests">Hobbies &Interests:</label>
+                    <textarea name="hobbiesInterests" id="hobbiesInterests" required></textarea>
+
+                    <fieldset data-role="controlgroup">
+                        <legend>Gender</legend>
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="male" value="male" required="required">
+                        <label for="female">Female</label>
+                        <input type="radio" name="gender" id="female" value="female" required="required">
+                    </fieldset>
+                    
+                    
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+
+                <!--    <a href="#editProfilePopUp" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all bi-top-margin-1-5">Submit</a> -->
+                    
+                    
+                    <div data-role="popup" id="addProfilePopUp" data-dismissible="false" style="max-width:450px;">
+                        <div data-role="header">
+                            <h1> Great!</h1>
+                        </div>
+                        <div role="main" class="ui-content">
+                            <p>Your profile is edited.</p>
+                            <div class="bi-text-center"><a href="#myProfilePage" class="ui-btn ui-corner-all ui-shadow ui-btn-b bi-top-margin-1-5">OK</a></div>
+
+                        </div>
+                    </div>
+                                      
+                </div>
+            </form>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="../settingPage" data-icon="back"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div><!-- /content -->
+        </div><!-- /page -->

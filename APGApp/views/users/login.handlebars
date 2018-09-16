@@ -1,48 +1,43 @@
  <div data-role="page" id="login">
-        <div data-role="header" data-theme="c" data-position="fixed">
-            
-            <h1>APG</h1>
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
             
         </div><!-- /header -->
         <div role="main" class="ui-content">
-            <img  class="logo" src="/img/AppLogo.png">
-            <h3>Log In</h3>
+            <img  class="logo" src="/img/AppBackgroundImage.png">
+            <h3><b>LOG IN</b></h3>
 
             <div class="errors"></div>
 
             <form action="/users/login" method="post" action="demoform.asp">
                 <div class="ui-field-contain">
             
-                    <label for="email">Email Address</label>
+                    <label for="email"><b>Email Address:</b></label>
                     <input type="text" name="email" id="email" value="" required>
-                    <label for="password">Password</label>
+                    <label for="password"><b>Password:</b></label>
                     <input type="password" name="password" id="password" value="" required>
             
                 </div>
-                <button onclick="getElementById('errorsPopUp').innerHTML = Date()" type="submit">Log in</button>
+           <!--     <button onclick="checkErrors()" type="submit">Log in</button> -->
 
                 <div data-role="popup" id="errorsPopUp">
                     <p>This is a simple popup.</p>
                 </div>
-            <!--  <button id="loginButton" type="submit">Submit</button> -->
+             <button id="everyButton" type="submit">Submit</button>
            
         </form>
 
+        <div id="OneKid"><img src="/img/Kid2.png"></div>
 
-            <div data-role="popup" id="invalidInputPopUp" data-dismissible="false" style="max-width:300px;">
-                <div role="main" class="ui-content">
-                    <h3 class="mc-text-danger">Oops</h3>
-                    <p>Invalid username or passwords</p>
-                    <div class="mc-text-center"><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">Try again</a></div>
-                </div>
-            </div>
+
 
            <!-- <a href="settingPage" class="ui-btn ui-btn-b ui-corner-all bi-top-margin-1-5">Log In</a> -->
 
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#signInOrSignUpPage" data-icon="home"></a></li>
+                        <!--<li><a href="/apg" id="everyButton" data-icon="home"></a></li> -->
+                        <a href="/apg" id="everyButton"><img class="navbarIcon" src="/img/HomeIcon.png"></a>
                     </ul>
                 </div>
             </div>

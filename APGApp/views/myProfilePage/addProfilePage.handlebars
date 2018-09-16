@@ -1,11 +1,13 @@
 <div data-role="page" id="addProfilePage">
-        <div data-role="header" data-theme="c" data-position="fixed">
-            <h1>APG</h1>
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
         </div><!-- /header -->
         <div role="main" class="ui-content">
             <form action="/myProfilePage" method="post" action="demoform.asp">
                 <div class="ui-field-contain">
-
+                    <label for="pic">Upload Image</label>
+                    <input type="file" name="pic" accept="image/*">
+                    
                     <label for="headline">Headline</label>
                     <input type="text" name="headline" id="headline" value="" required>
                     <label for="name">Name</label>
@@ -30,7 +32,7 @@
                     
                     
               </div>
-              <button type="submit">Submit</button>
+              <button type="submit" id="everyButton">Submit</button>
             </form>
 
                 <!--    <a href="#editProfilePopUp" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all bi-top-margin-1-5">Submit</a> -->
@@ -45,15 +47,16 @@
                             <div class="bi-text-center"><a href="#myProfilePage" class="ui-btn ui-corner-all ui-shadow ui-btn-b bi-top-margin-1-5">OK</a></div>
 
                         </div>
-                    </div>
-                                      
+                    </div>                                   
                 </div>
             </form>
+
+            <div id="OneKid"><img src="/img/Kid5.png"></div>
 
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="../settingPage" data-icon="back"></a></li>
+                        <li><a href="../settingPage" id="everyButton"><img class="navbarIcon" src="/img/BackIcon.png"></a></li>
                     </ul>
                 </div>
             </div>

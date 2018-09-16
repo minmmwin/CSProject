@@ -1,5 +1,35 @@
 .logo{
     display: block;
-    width:130px;
+    width:300px;
     margin:auto;
+}
+
+.headerIcon {
+    display: block;
+    width:45px;
+    margin:auto;
+    background-color:#004280;
+}
+
+.navbarIcon {
+    display: block;
+    width:45px;
+    margin:auto;
+}
+
+#headerBar{
+    background-color:#004280;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+#OneKid {
+    text-align: center;
+}
+
+#everyButton, #sendButton {
+    background-color: #cce6ff;
+    color: #004280;
 }

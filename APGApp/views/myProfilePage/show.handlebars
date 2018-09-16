@@ -1,0 +1,45 @@
+
+<div data-role="page" id="show">
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+
+            <div data-role="content">
+                <div id="myProfilePageContent">
+                    <div>Image
+                        <img src="{{profile.image}}">
+                    </div>
+
+                    <h3 id="myProfileHeadline"><b>{{profile.headline}}</b> </h3>
+                    <p id="myProfileName"><b> Name:{{profile.name}}</b> </p>
+                    <p id="myProfileAge"><b>Age: {{profile.age}} </b></p>
+                    <p id="myProfileLocation"><b>Location: {{profile.location}}</b></p>
+                    <p id="myProfileGender"><b>Gender: {{profile.gender}} </b></p>
+                    <p id="myProfileAboutMe"><b>About Me: {{profile.aboutMe}} </b></p>
+                    <p id="myProfileHobbiesInterests"> <b>Hobbies & Interests: {{profile.hobbiesInterests}} </b></p>
+
+                    
+
+
+                    <!--<a id="website" onclick="goToWebPage(this)"> Website </a> -->
+
+
+                </div>
+            </div>
+          <!--  <a href="/myProfilePage/editProfilePage/{{id}}" class="ui-btn ui-corner-all">Edit</a> -->
+           
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="/myProfilePage/profileList" id="everyButton"><img class="navbarIcon" src="/img/BackIcon.png"></a></li>
+                        <li><a href="/message" id="everyButton"><img class="navbarIcon" src="/img/MessageIcon.png"></a></li>
+                           
+                        <!--<li><a href="#editProfilePage" data-icon="edit"></a></li> -->
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+    </div><!-- /page -->

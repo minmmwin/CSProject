@@ -1,0 +1,43 @@
+<div data-role="page" id="myProfileIndex">
+        <div data-role="header" data-theme="c" data-position="fixed">
+            <h1>APG</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            {{#each profile}}
+            <div data-role="content">
+                <div id="myProfilePageContent">
+                    <div>
+                        <img src="{{image}}">
+                    </div>
+
+                    <h3 id="myProfileHeadline"> {{headline}} </h3>
+                    <p id="myProfileName">Name: {{name}} </p>
+                    <p id="myProfileAge">Age: {{age}} </p>
+                    <p id="myProfileLocation">Location: {{location}}</p>
+                    <p id="myProfileGender">Gender: {{gender}} </p>
+                    <p id="myProfileAboutMe">About Me: {{aboutMe}} </p>
+                    <p id="myProfileHobbiesInterests">Hobbies & Interests: {{hobbiesInterests}} </p>
+
+                    
+                    <!--<a id="website" onclick="goToWebPage(this)"> Website </a> -->
+
+
+                </div>
+            </div>
+            
+            {{else}}
+                <p>No info</p>
+            {{/each}}
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="../settingPage" data-icon="bars"></a></li>
+                        <!--<li><a href="#editProfilePage" data-icon="edit"></a></li> -->
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+    </div><!-- /page -->
+

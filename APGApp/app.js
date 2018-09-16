@@ -14,14 +14,19 @@ const app = express();
 // Load routes
 const myProfilePage = require('./routes/myProfilePage');
 const users = require('./routes/users');
+const profileList = require('./routes/profileList');
+const messageList = require('./routes/messageList');
 
 // Passport Config
 require('./config/passport')(passport);
 
+// DB Config
+const db = require('./config/database');
+
 // Map global promise - get ride of warning
 mongoose.Promise =  global.Promise;
 // Connect to mongoose
-mongoose.connect('mongodb://localhost/apg-dev',{
+mongoose.connect(db.mongoURI, {
     //useMongoClient: true
 })
 .then(()=> console.log('MongoDB (apg-dev) connected...'))
@@ -39,6 +44,7 @@ app.set('view engine', 'handlebars');
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
 // Static folder (this creats public folder to be static folder)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -53,6 +59,10 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(flash());
 
 //Global variables
@@ -60,6 +70,7 @@ app.use(function(req, res, next){
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
     next();
 });
 
@@ -71,10 +82,6 @@ app.get('/', (req, res)=>{
     });
 });
 
-// About Route
-app.get('/about', (req, res)=>{
-    res.render('about');
-});
 
 // APG Route
 app.get('/apg', (req, res)=>{
@@ -82,30 +89,35 @@ app.get('/apg', (req, res)=>{
     res.render('signInOrSignUpPage');
 });
 
-// signInPage Route
-app.get('/signInPage', (req, res)=>{
-    res.render('signInPage');
-});
-
-// signUpPage Route
-app.get('/signUpPage', (req, res)=>{
-    res.render('signUpPage');
-});
 
 // settingPage Route
 app.get('/settingPage', (req, res)=>{
     res.render('settingPage');
 });
 
+var messages = [
+    {name: "Joh", message: "Hello"},
+    {name: "Jane", message: "Hi"},
+]
+// Message Route
+app.get('/message', (req, res)=>{
+    res.render('message');
+    //res.render(messages);
+});
 
-
-
+// Message Route
+app.get('/message/messages', (req, res)=>{
+    res.send(messages);
+    //res.render(messages);
+});
 
 // Use routes
 app.use('/myProfilePage', myProfilePage);
 app.use('/users', users);
+app.use('/profileList', profileList);
+app.use('/messageList', messageList);
 
-const port = 5200;
+const port = process.env.PORT || 5200;
 
 app.listen(port, () =>{
     console.log(`Server is listening on port ${port}`);

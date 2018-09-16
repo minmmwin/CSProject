@@ -1,0 +1,37 @@
+
+<div data-role="page" id="message">
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+
+            <div data-role="content">
+               <h1 class="display-4"> Send Message</h1>
+               <br>
+               <form >
+                    <!--<input id="nameTo" class="form-control" placeholder="Name"> -->
+                    <input id="nameTo" placeholder="Name">
+                    <br>
+                    <textarea  id="messageSend" placeholder="Message"></textarea>
+                    <!--   <textarea id="messageSend" class="form-control" placeholder="Message"></textarea> -->
+                    <br>
+                  <button id="sendButton"> Send</button>
+                </form>
+              
+            </div>
+         
+            <div id="oldMessages">
+                
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="/myProfilePage/profileList" id="everyButton"><img class="navbarIcon" src="/img/BackIcon.png"></a></li>
+                        <!--<li><a href="#editProfilePage" data-icon="edit"></a></li> -->
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+    </div><!-- /page -->

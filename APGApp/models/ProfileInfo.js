@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ProfileInfoSchema = new Schema({
+    image: {
+        type: String
+    },
     headline:{
         type: String,
         required: true     
@@ -30,7 +33,20 @@ const ProfileInfoSchema = new Schema({
     gender:{
         type: String,
         required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    browseUser:{
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    user:{
+        type: Schema.Types.ObjectId,
+        ref: 'users'
     }
+
 });
 
 mongoose.model('profileInfo', ProfileInfoSchema);

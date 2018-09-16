@@ -1,0 +1,37 @@
+<div data-role="page" id="profileList">
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+
+            <div data-role="content">
+
+                <!-- List Profile here  -->
+                {{#each profileInfos}}
+                    <a href="/myProfilePage/show/{{id}}" id="everyButton" class="ui-btn ui-corner-all">{{name}} : {{headline}}</a>
+
+                
+                {{else}}
+                    <p>No info</p>
+                {{/each}}
+
+
+
+             
+            </div>
+            
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="../settingPage" id="everyButton" ><img class="navbarIcon" src="/img/SettingIcon.png"></a></li>
+
+                        <li><a href="/messageList/messageList" id="everyButton"><img class="navbarIcon" src="/img/InboxIcon.png"></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+    </div><!-- /page -->

@@ -1,29 +1,28 @@
  <div data-role="page" id="settingPage">
-        <div data-role="header" data-theme="c" data-position="fixed">
-            <h1>APG</h1>
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
         </div><!-- /header -->
         <div role="main" class="ui-content">
-            <a href="/myProfilePage/" class="ui-btn ui-corner-all">my Profile</a>
+            <img  class="logo" src="/img/AppBackgroundImage.png">
+            
+            <a href="/myProfilePage/myProfileIndex" id="everyButton" class="ui-btn ui-corner-all">my Profile</a>
 
-            <a href="signInPage" class="ui-btn ui-corner-all">Log Out</a>
+            <a href="/myProfilePage/addProfilePage" id="everyButton" class="ui-btn ui-corner-all">Add Profile</a>
 
-            <a href="#accountDeletePopUp" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-corner-all bi-top-margin-1-5">Delete</a>
+            <a href="/users/logout" id="everyButton" class="ui-btn ui-corner-all">Log Out</a>
 
-            <div data-role="popup" id="accountDeletePopUp" data-dismissible="false" style="max-width:450px;">
-                <div role="main" class="ui-content">
-                    <h3 class="mc-text-danger">Deleting Account Confirmation</h3>
-                    <p>Please press 'DELETE' to delete your account from APG</p>
-                    <div class="bi-text-center"><a href="#signInOrSignUpPage" class="ui-btn ui-corner-all ui-shadow ui-btn-b bi-top-margin-1-5">Delete</a></div>
-                </div>
-            </div>
+            <div id="OneKid"><img src="/img/Kid4.png"></div>
 
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        <!--<li><a href="#userListPage" data-icon="user"></a></li> -->
-                        <!--<li><a href="#myMessagesPage" data-icon="comment"></a></li>-->
-                        <li><a id="userListPageLink" onclick="goToUserListPage(this)" data-icon="user"></a></li>
-                        <li><a id="myMeessagesPageLink" onclick="goToMyMessagesPage(this)" data-icon="comment"></a></li>
+
+                         <li><a href="/myProfilePage/profileList" id="everyButton"><img class="navbarIcon" src="/img/UsersIcon.png"></a>
+                         </li>
+
+                        <li><a href="/messageList/messageList" id="everyButton"><img class="navbarIcon" src="/img/MessageIcon.png"></a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

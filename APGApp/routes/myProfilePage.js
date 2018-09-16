@@ -1,24 +1,63 @@
 const express =  require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+const {ensureAuthenticated} = require('../helpers/auth');
 
 // Load profileInfo Model
 require('../models/ProfileInfo');
 const ProfileInfo = mongoose.model('profileInfo');
 
+// Load User Model ** added myself due to**
+require('../models/User');
+const User = mongoose.model('users');
+
 // myProfile Index Page
-router.get('/', (req, res)=> {
+/*router.get('/', ensureAuthenticated, (req, res)=> {
     ProfileInfo.find({})
         .then(profileInfos => {
-            res.render('myProfilePage/myProfileIndex', {
-                profileInfos: profileInfos
-            });
+                res.render('myProfilePage/myProfileIndex', {
+                    profileInfos: profileInfos
+                });
+        });
+});*/
+
+// myProfileIndex Page
+router.get('/myProfileIndex', ensureAuthenticated, (req, res)=> {
+    ProfileInfo.find({user:req.user.id}).then(profile => {
+                res.render('myProfilePage/myProfileIndex', {
+                    profile: profile
+                });
+        });
+});
+
+// Profiles Index 9/12
+router.get('/profileList', ensureAuthenticated, (req, res)=> {
+    ProfileInfo.find({})
+    .populate('user') 
+    .then(profileInfos => {
+
+                res.render('myProfilePage/profileList', {
+                    profileInfos: profileInfos
+                });
+           // }
         });
     
 });
 
+// Show Single Profile
+router.get('/show/:id', (req, res) => {
+    ProfileInfo.findOne({
+        _id: req.params.id
+    })
+    .then(profile => {
+        res.render('myProfilePage/show', {
+            profile: profile
+        });
+    });
+});
+
 // Add profileinformation form / editProfilePage Route
-router.get('/', (req, res)=>{
+router.get('/addProfilePage', ensureAuthenticated, (req, res)=>{
     res.render('myProfilePage/addProfilePage');
 });
 
@@ -28,16 +67,22 @@ router.get('/editProfilePage/:id', (req, res)=>{
         _id: req.params.id
     })
     .then(profile => {
-        res.render('myProfilePage/editProfilePage',{
-            profile : profile
-        });
+        if(profile.user != req.user.id){
+            req.flash('error_msg', 'Not Authorized');
+            res.redirect('/myProfilePage');
+        } else {
+            res.render('myProfilePage/editProfilePage',{
+                profile : profile
+            });
+        }
+        
     });
 });
 
 
 // Process form inputs from addProfilePage
-router.post('/', (req, res) => {
-    //console.log(req.body);
+router.post('/', ensureAuthenticated, (req, res) => {
+    console.log(req.body);
     //res.send('ok');
     let errors = [];
 
@@ -83,30 +128,31 @@ router.post('/', (req, res) => {
     } else {*/
         //res.send('passed');
         const newUser = {
+            image: req.body.image,
             headline: req.body.headline,
             name: req.body.name,
             age: req.body.age,
             location: req.body.location,
             aboutMe: req.body.aboutMe,
             hobbiesInterests: req.body.hobbiesInterests,
-            gender: req.body.gender
+            gender: req.body.gender,
+            user: req.user.id
         }
         new ProfileInfo(newUser).save().then(profile => {
             req.flash('success_msg', 'Profile info added');
-            res.redirect('/myProfilePage');
-        })
-   // }
-
+            res.redirect(`/myProfilePage/show/${profile.id}`);
+        });
 });
 
 // Edit Form process for myProfile
 router.put('/:id', (req, res) => {
+    //res.send('put');
     ProfileInfo.findOne({
         _id: req.params.id
     })
-    .then(profile => {
-        
+    .then(profile => {   
         //new values
+        profile.image = req.body.image;
         profile.headline = req.body.headline;
         profile.name = req.body.name;
         profile.age = req.body.age;
@@ -116,11 +162,20 @@ router.put('/:id', (req, res) => {
         profile.gender = req.body.gender;
 
         profile.save()
-            .then(profile => {
-                req.flash('success_msg', 'Profile info updated.');
-                res.redirect('/myProfilePage');
+        .then(profile => {
+                //res.redirect('/myProfilePage');
+                res.redirect(`/myProfilePage/show/${profile.id}`);
             })
 
+    });
+});
+
+// Delete Story
+router.delete('/:id', (req, res) => {
+    //res.send('delete');
+    ProfileInfo.remove({_id: req.params.id})
+    .then(() => {
+        res.redirect('../settingPage');
     });
 });
 

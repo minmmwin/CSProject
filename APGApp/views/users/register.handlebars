@@ -1,34 +1,33 @@
  <div data-role="page" id="register">
-        <div class="bi-header" data-role="header" data-theme="c" data-position="fixed">
-           
-            <h1>APG</h1>
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
         </div><!-- /header -->
         <div role="main" class="ui-content">
-            <img  class="logo" src="/img/AppLogo.png">
-            <h3>Register</h3>
+            <img  class="logo" src="/img/AppBackgroundImage.png">
+            <h3><b>REGISTER</b></h3>
             <div class="errors"></div>
             <form action="/users/register" method="post" action="demoform.asp">
                 <div class="ui-field-contain">
             
-                    <label for="txt-first-name">Name</label>
+                    <label for="txt-first-name"><b>Name:</b></label>
                     <input type="text" name="name" id="name" value="{{name}}" required>
-                    <label for="email">Email Address</label>
+                    <label for="email"><b>Email Address:</b></label>
                     <input type="text" name="email" id="email" value="{{email}}" required>
-                    <label for="password">Password</label>
+                    <label for="password"><b>Password:</b></label>
                     <input type="password" name="password" id="password" value="{{password}}" required>
-                    <label for="password2">Confirm Password</label>
+                    <label for="password2"><b>Confirm Password:</b></label>
                     <input type="password" name="password2" id="password2" value="{{password2}}" required>
             
                 </div>
-                <button type="submit">Submit</button>
+                <button id="everyButton" type="submit">Submit</button>
             </form>
 
-         
+            <div id="OneKid"><img src="/img/Kid3.png"></div>
 
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#signInOrSignUpPage" data-icon="home"></a></li>
+                        <a href="/apg" id="everyButton"><img class="navbarIcon" src="/img/HomeIcon.png"></a>
                     </ul>
                 </div>
             </div>

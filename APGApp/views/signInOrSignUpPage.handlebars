@@ -1,13 +1,16 @@
-<div data-role="page" id="signInOrSignUpPage">
-        <div data-role="header" data-theme="c" data-position="fixed">
-            <h1>APG</h1>
+<div data-role="page" id="signInOrSignUpPage" background="2.png">
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
         </div><!-- /header -->
         <div role="main" class="ui-content">
-            <h2 class="bi-text-center">Welcome!</h2>
-            <p class="bi-top-margin-1-5"><b>Existing Users</b></p>
-            <a href="/users/login" class="ui-btn ui-corner-all">Sign In</a>
+            <img  class="logo" src="/img/AppBackgroundImage.png">
+            
+            <h2 class="bi-text-center"><b>WELCOME</b></h2>
+            <p class="bi-top-margin-1-5"><b>Existing Users:</b></p>
+            <a href="/users/login" id="everyButton"class="ui-btn ui-corner-all ui-shadow">Sign In</a>
             <p class="bi-top-margin-1-5"><b>Don't have an account?</b></p>
-            <a href="/users/register" class="ui-btn ui-corner-all">Sign Up</a>
-            <p></p>
+            <a href="/users/register" id="everyButton" class="ui-btn ui-corner-all ui-shadow">Sign Up</a>
+            
+            <div id="OneKid"><img src="/img/Kid1.png"></div>
         </div><!-- /content -->
     </div><!-- /page -->

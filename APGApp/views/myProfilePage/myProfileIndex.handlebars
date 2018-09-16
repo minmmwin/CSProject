@@ -1,47 +1,56 @@
-{{#each profileInfos}}
 
-<div data-role="page" id="myProfileIndex">
-        <div data-role="header" data-theme="c" data-position="fixed">
-            <h1>APG</h1>
+<div data-role="page" id="profileIndex">
+        <div data-role="header" id="headerBar" data-theme="c" data-position="fixed">
+            <h1><img class="headerIcon" src="/img/AppLogo.png"></h1>
         </div><!-- /header -->
         <div role="main" class="ui-content">
-
+            {{#if profile}}
             <div data-role="content">
                 <div id="myProfilePageContent">
+                    
 
-                    <h3 id="myProfileHeadline"> {{headline}} </h3>
-                    <p id="myProfileName"> {{name}} </p>
-                    <p id="myProfileAge"> {{age}} </p>
-                    <p id="myProfileLocation"> {{location}}</p>
-                    <p id="myProfileGender"> {{gender}} </p>
-                    <p id="myProfileAboutMe"> {{aboutMe}} </p>
-                    <p id="myProfileHobbiesInterests"> {{hobbiesInterests}} </p>
-
-                    <div>
-                        <br>
-                        <img id="imageOne" src="DefaultPhoto.png" alt="image" />
+                    {{#each profile}}
+                    <div>Image
+                        <img src="{{image}}">
                     </div>
 
-
-                    <!--<a id="website" onclick="goToWebPage(this)"> Website </a> -->
-
-
+                    <h3 id="myProfileHeadline"><b>{{headline}} </b></h3>
+                    <p id="myProfileName"> <b>Name:{{name}} </b></p>
+                    <p id="myProfileAge"><b>Age: {{age}} </b></p>
+                    <p id="myProfileLocation"><b>Location: {{location}}</b></p>
+                    <p id="myProfileGender"><b>Gender: {{gender}}</b> </p>
+                    <p id="myProfileAboutMe"><b>About Me: {{aboutMe}}</b> </p>
+                    <p id="myProfileHobbiesInterests"><b> Hobbies & Interests: {{hobbiesInterests}} </b></p>         
                 </div>
             </div>
-            <a href="/myProfilePage/editProfilePage/{{id}}" class="ui-btn ui-corner-all">Edit</a>
+
+            <div id="OneKid"><img src="/img/Kid7.png"></div>
+
+
+             <a href="/myProfilePage/editProfilePage/{{id}}" id="everyButton" class="ui-btn ui-corner-all"><img class="navbarIcon" src="/img/EditIcon.png"></a>
+
+              <form action="/myProfilePage/{{id}}?_method=DELETE" method="post" id="delete-form" action="demoform.asp">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" id="everyButton"  class="ui-btn ui-corner-all"><img class="navbarIcon" src="/img/DeleteIcon.png"></button>
+              </form>
+
+             {{/each}}
+          <!--  <a href="/myProfilePage/editProfilePage/{{id}}" class="ui-btn ui-corner-all">Edit</a> -->
+
+          {{else}}
+            <p>No info</p>
+        {{/if}}
+
+           
 
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="../settingPage" data-icon="bars"></a></li>
-                        <li><a href="#editProfilePage" data-icon="edit"></a></li>
+                        <li><a href="../settingPage" id="everyButton"><img class="navbarIcon" src="/img/BackIcon.png"></a></li>
+                       
                     </ul>
                 </div>
             </div>
 
         </div><!-- /content -->
     </div><!-- /page -->
-
-{{else}}
-    <p>No info</p>
-{{/each}}
